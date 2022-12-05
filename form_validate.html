@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=ma, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- internal css -->
+    <style>
+        p{
+            color:red;
+        }
+    </style>
+    <!-- javascript -->
+    <script>
+        function validate(){
+            var name=document.form.name.value;
+            var password=document.form.password.value;
+            var number=document.form.phone.value;
+            var mail=document.form.mail.value;
+
+
+
+            if(name==null || name==""){
+                document.getElementById('uname').innerHTML="* Name cannot be empty.";
+                return false;
+            }
+            else if(password=null || password==""){
+                document.getElementById('pass').innerHTML="* Password cannot be empty.";
+                return false;
+
+            }
+
+            else if(password.length<8){
+                document.getElementById('pass').innerHTML="* Password too short.";
+               
+                return false;
+            }
+            else if(isNaN(number)){
+                document.getElementById('pnumber').innerHTML="* Please enter number value only.";
+                return false;
+            }
+
+            else if(number==null|| number==""){
+                document.getElementById('pnumber').innerHTML="* Password cannot be empty.";
+                return false;
+            }
+
+            else if(number.length !=10){
+                document.getElementById('pnumber').innerHTML="* Please enter valid phone number length";
+                return false;
+            }
+
+            else if(mail==null || mail==""){
+                document.getElementById('email').innerHTML="* Email cannot be empty."
+                return false;
+            }
+            
+        }
+    </script>
+
+
+<!-- html form -->
+    <div class="main">
+        <form action="" name="form" method="post" onsubmit="return validate()">
+
+            <h1>Web Form</h1>
+            
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+            <p id="uname"></p>
+            
+
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+            <p id="pass"></p>
+        
+
+
+
+
+            <label for="number">Phone:</label>
+            <input type="text" name="phone" id="phone">
+            <p id="pnumber"></p>
+        
+
+
+
+            <label for="email">E-mail:</label>
+            <input type="email" name="mail" id="mail">
+            <p id="email"></p>
+        
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    
+</body>
+</html>
